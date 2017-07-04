@@ -7,7 +7,7 @@ public class Permutation {
 
     public static void main(String[] args) {
 
-        String str1 = "dog";
+        String str1 = "Dog";
         String str2 = "god";
 
         if (permuationOfStrings(str1, str2)) {
@@ -29,7 +29,7 @@ public class Permutation {
     private static String sort(String str) {
         char[] chars = str.toCharArray();
         Arrays.sort(chars);
-        return new String(chars);
+        return new String(chars).toLowerCase();
         //return chars.toString // this is a blunder remember why!
 
     }
