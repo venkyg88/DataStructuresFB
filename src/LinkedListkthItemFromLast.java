@@ -42,7 +42,15 @@ public class LinkedListkthItemFromLast {
         llist.push(15);
         llist.push(35);
 
-        llist.printNthFromLast(3, llist.head);
+        llist.printNthFromLast(1, llist.head);
+
+        LinkedListkthItemFromLast llist1 = new LinkedListkthItemFromLast();
+        llist1.push(2);
+        llist1.push(4);
+        llist1.push(1);
+        llist1.push(3);
+
+        llist.printNthFromLast(1, llist1.head);
     }
 
     private int printNthFromLast(int k, Node head) {
@@ -52,10 +60,11 @@ public class LinkedListkthItemFromLast {
 
         int index = printNthFromLast(k, head.next) + 1;
         if (index == k) {
-            System.out.print(k + "th to last node is "+ head.data);
+            System.out.println(k + "th to last node is "+ head.data);
         }
         System.out.println(index);
         return index;
     }
-    
+
+
 }
