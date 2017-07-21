@@ -1,0 +1,61 @@
+import java.util.EmptyStackException;
+import java.util.Stack;
+
+/**
+ * Created by venkat on 7/21/17.
+ * Uinsg two stacks
+ */
+public class MinStack {
+
+    /** initialize your data structure here. */
+    public Stack<Integer> s1;
+    public Stack<Integer> s2;
+    public MinStack() {
+        s1 = new Stack<>();
+        s2 = new Stack<>();
+    }
+
+    public void push(int x) {
+        if(s1.isEmpty()|| s2.peek() > x) {
+            s2.push(x);
+        }
+        s1.push(x);
+    }
+
+    public void pop() {
+        if(s1.isEmpty()) return;
+        if(s1.pop() == s2.peek()){
+            s2.pop();
+        }
+    }
+
+    public int top() {
+       return s1.peek();
+    }
+
+    public int getMin()  {
+        return s2.peek();
+    }
+
+    public static void main (String[] args) {
+        MinStack obj = new MinStack();
+        obj.push(5);
+        obj.push(10);
+        obj.push(2);
+        obj.push(6);
+        obj.push(3);
+
+
+        obj.pop();
+        obj.pop();
+        obj.pop();
+        obj.pop();
+        obj.pop();
+        obj.pop();
+        obj.pop();
+
+        System.out.print(obj.getMin());
+
+
+    }
+}
