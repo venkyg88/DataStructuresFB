@@ -1,0 +1,40 @@
+package com.company;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+/**
+ * Created by venkat on 10/11/17.
+ * 
+ * First important thing here is mapping array to the letters on each number
+ * next how to proceed with the iterations with the outer loop as length of digits which makes sense we would go letters of first digit(n) and letters of second digit ....(similarly)  basically n*m here
+ * Example: n = 2,m =3, 2 = abc, 3 = def, 3*3 = 9 combinations
+ */
+public class LetterCombinationNumbers {
+
+    public List<String> letterCombinations(String digits) {
+
+        LinkedList<String> ans = new LinkedList<>();
+
+        if (digits.isEmpty() || digits == null) return ans;
+        String[] mapping = new String[] {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        ans.add("");
+        for(int i =0; i<digits.length();i++){
+            int x = Character.getNumericValue(digits.charAt(i));
+            while(ans.peek().length()==i){
+                String t = ans.remove();
+                for(char s : mapping[x].toCharArray())
+                    ans.add(t+s);
+            }
+        }
+        return ans;
+    }
+
+
+    public static void main(String[] args) {
+
+        LetterCombinationNumbers letter = new LetterCombinationNumbers();
+        System.out.print(letter.letterCombinations(""));
+    }
+}
