@@ -1,6 +1,6 @@
 
-Time complexity: O(nlogn) . Worst case: O(n2)
-Space Complexity: O(logn)
+//Time complexity: O(nlogn) . Worst case: O(n2)
+//Space Complexity: O(logn)
 
 
 public class QuickSort{
