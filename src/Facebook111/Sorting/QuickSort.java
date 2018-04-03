@@ -18,7 +18,7 @@ public class QuickSort{
     quicksort(array, index, right);
   }
   
-  public static void partition(int[] array, int left, int right, int pivot){
+  public static int partition(int[] array, int left, int right, int pivot){
     while (left <= right) {
       while(array[left] <= pivot){
         left++;
