@@ -17,10 +17,12 @@ class BinarySearch
         }
         return -1;
     }
-	public static void main(String[] args) {
-	    BinarySearch binarySearch = new BinarySearch();
-	    int arr[] = {0,2,3,5,8,9,10};
-	    int l = arr.length;
-	    int n = binarySearch.performBS(0,l-1, arr, 1);
-	    System.out.println(n+"");
-	}
+    public static void main(String[] args) {
+      BinarySearch binarySearch = new BinarySearch();
+	  int arr[] = {0,2,3,5,8,9,10};
+	  int l = arr.length;
+	  int n = binarySearch.performBS(0,l-1, arr, 1);
+	  System.out.println(n+"");
+      }
+}
+
