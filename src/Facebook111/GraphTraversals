@@ -1,0 +1,46 @@
+class GraphTraversals{
+  public void bfs(int start) {
+
+        //add start to queue
+        private boolean visited[] = new boolean[v];
+        private LinkedList<Integer> queue = new LinkedList<>();
+
+        queue.add(start);
+        visited[start] = true;
+        while(queue.size() != 0){
+            int s = queue.poll();
+
+            Iterator<integer> i = adj[s].listIterator();
+            while(i.hasNext()){
+                int n = i.next();
+                if(!visited[n]){
+                    queue.add(n);
+                    visited[n] = true;
+                }
+
+            }
+
+        }
+    }
+
+    public void dfs(int v) {
+        boolean vertices[] = new boolean[v];
+        dfsUtil(vertices, v);
+    }
+
+    public void dfsUtil(boolean visited[], int v) {
+
+        visited[v] = true;
+        System.out.println(" "+v);
+
+
+        Iterator<integer> i = adj[v].iteratorList();
+        while(i.hasNext()){
+            int n = i.next();
+            if(!visited[n]) {
+                dfsUtil(visited, n);
+            }
+        }
+    }
+
+}
