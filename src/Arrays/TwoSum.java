@@ -10,9 +10,7 @@ return [0, 1].
 
 **/
 
-
-
-
+//If the array is un-sorted
 public class TwoSum {
 	public int[] twoSum(int[] numbers, int target) {
 	    Map<Integer, Integer> map = new HashMap<Integer, Integer>();
@@ -24,5 +22,30 @@ public class TwoSum {
 		    }
 		}
 		return new int[]{0, 0};
+	}
+}
+
+//if the array is sorted.
+
+public class TwoSum4SortedArray{
+	public int[] twoSum(int[] array, int target) {
+		int a[] = new int[2];
+		int i = 0;
+		int j = array.length - 1;
+		while(i < j) {
+			if(array[i] + array[j] == target) {
+				a[0] = i;
+				a[1] = j;
+				return a;
+				break;
+			}
+			else if ( target - array[i] < array[j]){
+				j--;
+			}
+			else {
+				i++;
+			}
+		}
+		return new arr[]{0,0}; //return zero or null when no target sum found.
 	}
 }
