@@ -9,7 +9,7 @@ public class MaxSubArraySum {
       int max_ending = 0;
       
       for( int i=0; i< a.length; i++){
-        max_ending = max_so_far + a[i];
+        max_ending = max_ending + a[i];
         if( max_so_far < max_ending) max_so_far = max_ending;
         if( max_ending < 0 ) max_ending = 0;
       }
