@@ -1,0 +1,92 @@
+public class MyCircularQueue {
+
+    int front;
+    int rear;
+    int qSize;
+    int currentSize;
+    int[] cQueue;
+
+    /** Initialize your data structure here. Set the size of the queue to be k. */
+    public MyCircularQueue(int k) {
+        front = -1;
+        rear =-1;
+        qSize = k;
+        currentSize = 0;
+        cQueue = new int[qSize];
+    }
+
+    /** Insert an element into the circular queue. Return true if the operation is successful. */
+    public boolean enQueue(int value) {
+        if ( isFull()){
+            return false;
+        } else {
+
+            rear = (rear + 1) % qSize;
+            cQueue[rear] = value;
+            currentSize++;
+        }
+        if(front == -1) {
+            front = rear;
+        }
+        return true;
+    }
+
+    /** Delete an element from the circular queue. Return true if the operation is successful. */
+    public boolean deQueue() {
+        if ( isEmpty()) {
+            return false;
+        } else {
+            cQueue[front] = 0;
+            front = (front + 1) % qSize;
+            currentSize--;
+        }
+        return true;
+    }
+
+    /** Get the front item from the queue. */
+    public int Front() {
+        if (isEmpty()){
+            return -1;
+        }
+        return cQueue[front];
+    }
+
+    /** Get the last item from the queue. */
+    public int Rear() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return cQueue[rear];
+    }
+
+    /** Checks whether the circular queue is empty or not. */
+    public boolean isEmpty() {
+        if(currentSize == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    /** Checks whether the circular queue is full or not. */
+    public boolean isFull() {
+        if (currentSize == qSize){
+            return true;
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        MyCircularQueue obj = new MyCircularQueue(3);
+        boolean param_1 = obj.enQueue(3);
+        boolean param_2 = obj.enQueue(2);
+        boolean param_23 = obj.enQueue(1);
+        boolean param_34 = obj.enQueue(0);
+        int param_3 = obj.Front();
+        int param_4 = obj.Rear();
+        boolean param_5 = obj.deQueue();
+        boolean param_6 = obj.deQueue();
+        boolean param_7 = obj.deQueue();
+        boolean param_8 = obj.deQueue();
+        System.out.println(param_1 +" "+ param_2+" "+param_23+" "+param_34+" "+param_3+" "+param_4+" "+param_7+ " " + param_8);
+
+    }
